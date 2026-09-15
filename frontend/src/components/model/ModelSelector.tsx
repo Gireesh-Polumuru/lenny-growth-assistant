@@ -35,7 +35,7 @@ export const ModelSelector: React.FC<ModelSelectorProps> = ({
   const getActiveLabel = () => {
     if (selectedProvider === 'ollama') {
       return {
-        name: `Ollama · ${ollama?.default_model || 'Llama 3.1'}`,
+        name: `Ollama · ${ollama?.default_model || 'llama3.2:latest'}`,
         status: ollama?.available ? 'Local' : 'Unavailable',
         statusType: 'Local',
         isOk: !!ollama?.available,
@@ -52,7 +52,7 @@ export const ModelSelector: React.FC<ModelSelectorProps> = ({
       };
     }
     return {
-      name: 'Ollama · Llama 3.1',
+      name: 'Deterministic Mock PM Engine',
       status: 'Local',
       statusType: 'Local',
       isOk: true,
