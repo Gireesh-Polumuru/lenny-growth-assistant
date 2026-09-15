@@ -13,6 +13,7 @@ from app.agents.ship30 import Ship30Agent
 from app.agents.artifact_agent import ArtifactAgent
 from app.llm.factory import get_llm_provider
 from app.llm.mock_engine import MockLLMProvider
+from app.core.config import settings
 from app.core.logger import logger
 
 router = APIRouter(prefix="/api", tags=["Chat"])
@@ -180,6 +181,6 @@ async def handle_chat_message(
         sources=agent_result.get("sources", []),
         artifact=artifact_resp_obj,
         provider=agent_result.get("provider", "mock"),
-        model=agent_result.get("model", "llama3.2"),
+        model=agent_result.get("model", settings.OLLAMA_MODEL),
         latency_ms=agent_result.get("latency_ms")
     )

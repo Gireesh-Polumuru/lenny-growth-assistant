@@ -8,7 +8,7 @@ from app.core.logger import logger
 class OllamaProvider(BaseLLMProvider):
     def __init__(self, base_url: Optional[str] = None, default_model: Optional[str] = None):
         self.base_url = (base_url or settings.OLLAMA_BASE_URL).rstrip("/")
-        self.default_model = default_model or settings.OLLAMA_MODEL or "llama3.2"
+        self.default_model = default_model or settings.OLLAMA_MODEL or "llama3.2:latest"
         self.timeout = settings.OLLAMA_TIMEOUT_SECONDS
         
     async def is_available(self) -> bool:

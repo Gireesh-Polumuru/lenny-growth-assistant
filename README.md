@@ -9,7 +9,7 @@
 [![Ollama](https://img.shields.io/badge/Ollama-Local_LLM-black.svg?style=flat&logo=ollama&logoColor=white)](https://ollama.ai)
 [![Tests](https://img.shields.io/badge/Tests-13%20Passed%20(100%25)-success)](https://pytest.org)
 
-An enterprise-ready, forward-deployed AI conversational platform that ingests *Lenny's Podcast* transcripts, provides strictly grounded answers with verifiable timestamp citations, generates ~1,250-word Ship 30 for 30 atomic essays, and renders live interactive HTML/CSS and Markdown artifacts in a sandboxed side-by-side viewer.
+A full-stack, forward-deployed AI conversational platform that ingests *Lenny's Podcast* transcripts, provides strictly grounded answers with verifiable timestamp citations, generates ~1,250-word Ship 30 for 30 atomic essays, and renders live interactive HTML/CSS and Markdown artifacts in a sandboxed side-by-side viewer.
 
 ---
 
@@ -43,7 +43,7 @@ An enterprise-ready, forward-deployed AI conversational platform that ingests *L
 │  │ Multi-LLM Provider Abstraction:                                                   │ │
 │  │ • Local Ollama (`llama3.2` / `mistral` / `qwen2.5`)                               │ │
 │  │ • Anthropic Claude (`claude-3-5-sonnet-20241022`)                                 │ │
-│  │ • Deterministic Fast Mock Engine (for instant zero-setup testing)                 │ │
+│  │ • Deterministic Fast Mock Engine (for explicit zero-setup testing)                 │ │
 │  └──────────────────────────────┬──────────────────────────────┬─────────────────────┘ │
 └─────────────────────────────────┼──────────────────────────────┼───────────────────────┘
                                   │                              │
@@ -63,7 +63,7 @@ An enterprise-ready, forward-deployed AI conversational platform that ingests *L
 - **Ship 30 for 30 Writing Skill:** Dedicated agent encoding Dickie Bush & Nicolas Cole atomic essay principles (Atomic Hook, 1-3-1 rhythm, bold scannability, ~1,250 words, "The One Big Takeaway").
 - **Claude-Style In-App Artifact Viewer:** Interactive HTML/CSS tools (calculators, frameworks, dashboards) render in a side-by-side split screen.
 - **Untrusted Code Sandboxing:** Sandboxed iframe (`sandbox="allow-scripts"` without `allow-same-origin`) with Content Security Policy (CSP) blocking network exfiltration.
-- **Flexible LLM Provider Layer:** Real-time UI toggle between local Ollama, Anthropic Claude, and deterministic mock mode with graceful offline fallbacks.
+- **Explicit LLM Provider Layer:** Real-time UI control between local Ollama, Anthropic Claude, and deterministic mock mode with zero silent fallbacks.
 - **Full Multi-Session Persistence:** Multi-turn conversation history and artifacts saved in PostgreSQL.
 
 ---
@@ -75,7 +75,7 @@ An enterprise-ready, forward-deployed AI conversational platform that ingests *L
 Ensure Docker is running, then clone and launch:
 
 ```bash
-git clone https://github.com/your-username/lenny-growth-assistant.git
+git clone https://github.com/Gireesh-Polumuru/lenny-growth-assistant.git
 cd lenny-growth-assistant
 
 # 1. Setup environment variables (optional cloud key)
@@ -89,6 +89,9 @@ Access the application:
 - **Frontend Web UI:** [http://localhost:5173](http://localhost:5173)
 - **Backend API Docs (Swagger):** [http://localhost:8000/docs](http://localhost:8000/docs)
 - **Health Check:** [http://localhost:8000/health](http://localhost:8000/health)
+
+> **Note on Docker + Host Ollama:**
+> When running inside Docker on Windows/Mac, the backend reaches host-local Ollama via `http://host.docker.internal:11434` (pre-configured in `docker-compose.yml` with `extra_hosts: ["host.docker.internal:host-gateway"]`). Ensure Ollama is running on your host machine.
 
 ---
 
@@ -114,16 +117,18 @@ Open [http://localhost:5173](http://localhost:5173) in your browser!
 
 ---
 
-## 4. LLM Configuration & Setup
+## 4. LLM Configuration & Provider Behavior
 
-### A. Local Ollama Setup (Mandatory for Demo)
+The system provides **honest, deterministic provider routing** without silent fallbacks:
+
+### A. Local Ollama Setup (Primary Demo Model)
 1. Install [Ollama](https://ollama.ai).
-2. Pull your preferred lightweight model:
+2. Pull your model:
    ```bash
    ollama pull llama3.2
-   # or: ollama pull mistral
    ```
-3. Ensure Ollama is running (`ollama serve`). The app connects automatically to `http://localhost:11434`.
+3. Ensure Ollama is running (`ollama serve`). The local backend connects to `http://localhost:11434` (or `http://host.docker.internal:11434` in Docker).
+4. **Error Behavior:** If Ollama is selected but offline or unreachable, the system returns an explicit connection error (`503 Service Unavailable: Ollama service unavailable at ...`) rather than silently routing elsewhere.
 
 ### B. Anthropic Claude Setup (Cloud Provider)
 In your `.env` file, supply your Anthropic API key:
@@ -131,9 +136,11 @@ In your `.env` file, supply your Anthropic API key:
 ANTHROPIC_API_KEY=sk-ant-api03-...
 ANTHROPIC_MODEL=claude-3-5-sonnet-20241022
 ```
+* **Error Behavior:** If Claude is selected but no valid `ANTHROPIC_API_KEY` is configured, the system explicitly returns `"Anthropic API key is not configured"` rather than pretending it succeeded or silently switching models.
 
-### C. Deterministic Fast Mock Mode (Offline Zero-Setup)
-If no local Ollama is running and no cloud API key is provided, the application automatically enables **Fast Mock Mode**, allowing full E2E evaluation of Grounded Q&A, Ship 30 essays, and interactive artifacts without setup friction.
+### C. Deterministic Fast Mock Mode
+* Used **only when explicitly selected** in the UI or configuration (`DEFAULT_LLM_PROVIDER=mock`).
+* Provides instant deterministic PM answers for testing without requiring local GPU or cloud credentials.
 
 ---
 
@@ -142,11 +149,11 @@ If no local Ollama is running and no cloud API key is provided, the application 
 | Variable | Default | Description |
 | :--- | :--- | :--- |
 | `APP_ENV` | `development` | `development` / `production` / `test` |
-| `DATABASE_URL` | `sqlite+aiosqlite:///./lenny_assistant.db` | PostgreSQL or SQLite connection string |
+| `DATABASE_URL` | `postgresql+asyncpg://postgres:postgres@db:5432/lenny_assistant` | PostgreSQL connection string (or SQLite fallback) |
 | `DEFAULT_LLM_PROVIDER` | `ollama` | `ollama` \| `anthropic` \| `mock` |
 | `OLLAMA_BASE_URL` | `http://localhost:11434` | URL of local Ollama instance |
 | `OLLAMA_MODEL` | `llama3.2` | Model tag for Ollama |
-| `ANTHROPIC_API_KEY` | `""` | Anthropic Claude API Key |
+| `ANTHROPIC_API_KEY` | `""` | Anthropic Claude API Key (optional) |
 | `ANTHROPIC_MODEL` | `claude-3-5-sonnet-20241022` | Claude model identifier |
 | `FRONTEND_URL` | `http://localhost:5173` | CORS allowed origin |
 
@@ -176,7 +183,7 @@ backend/tests/test_retrieval.py::test_retrieval_for_elena_verna_plg PASSED
 backend/tests/test_retrieval.py::test_empty_retrieval_for_irrelevant_query PASSED
 backend/tests/test_sessions.py::test_session_lifecycle PASSED
 
-============================= 13 passed in 3.14s (100% Pass Rate) =============================
+============================= 13 passed in 1.60s (100% Pass Rate) =============================
 ```
 
 ---
@@ -217,7 +224,6 @@ lenny-growth-assistant/
 │   ├── app/
 │   │   ├── api/          # FastAPI routers (health, chat, sessions, artifacts, models)
 │   │   ├── agents/       # Agent Router, Grounded Q&A, Ship30, Artifact agents
-│   │   ├── skills/       # Ship 30 for 30 markdown skill definition and rules
 │   │   ├── rag/          # Semantic chunking, embeddings, retrieval, citations, ingestion
 │   │   ├── llm/          # Ollama, Anthropic Claude, and Mock provider abstractions
 │   │   ├── db/           # SQLAlchemy models and async database engine
@@ -239,6 +245,9 @@ lenny-growth-assistant/
 │   ├── vite.config.ts    # Vite configuration & reverse proxy
 │   └── Dockerfile        # Frontend multi-stage Nginx container
 │
+├── skills/
+│   └── ship30_essay/     # Ship 30 for 30 skill definition & prompt rules
+│
 ├── data/
 │   ├── transcripts.json  # Curated Lenny Podcast transcript database
 │   └── README.md         # Knowledge base inventory
@@ -248,12 +257,11 @@ lenny-growth-assistant/
 │   ├── architecture.md   # System architecture, DB schema, and topology
 │   └── design.md         # UI/UX design tokens and interaction states
 │
-├── agent_transcripts/    # Step-by-step engineering logs & failed attempt corrections
+├── agent-transcripts/    # Step-by-step engineering logs & failed attempt corrections
 ├── docker-compose.yml    # One-command orchestration
 ├── .env.example          # Safe environment variables template
 ├── run_local.bat         # Windows 1-click startup
 ├── start.sh              # Unix/Mac startup
-├── demo_video_guide.md   # 2-3 min demo video presentation script
 └── README.md             # Project documentation
 ```
 
