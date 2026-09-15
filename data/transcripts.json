@@ -1,0 +1,164 @@
+[
+  {
+    "id": "rahul-vohra-pmf",
+    "title": "How Superhuman Built An Engine To Find Product-Market Fit",
+    "guest": "Rahul Vohra",
+    "company": "Superhuman",
+    "episode_url": "https://www.lennyspodcast.com/how-superhuman-built-an-engine-to-find-product-market-fit-rahul-vohra/",
+    "source_url": "https://github.com/lenny-transcripts/episodes/rahul-vohra.md",
+    "published_at": "2022-06-15",
+    "summary": "Rahul Vohra explains the reverse-engineered quantitative survey methodology Superhuman created to measure, optimize, and systematically increase Product-Market Fit (PMF) from 22% to 58% before launching.",
+    "sections": [
+      {
+        "start_timestamp": "04:12",
+        "end_timestamp": "09:45",
+        "title": "The Sean Ellis Metric & The Leading Indicator of PMF",
+        "content": "When we were building Superhuman in 2017, the biggest problem in startups was that Product-Market Fit felt like an elusive black box. Marc Andreessen had described PMF as this mythical event where money is piling up and customers are knocking down your door. But as a founder in the pre-PMF phase, that definition is useless because it tells you what it looks like after you have it, not how to get there.\n\nI discovered Sean Ellis's benchmark: ask your existing users, 'How would you feel if you could no longer use the product?' with three choices: Very disappointed, Somewhat disappointed, or Not disappointed. Ellis found after analyzing hundreds of companies that those who struggled to grow always scored under 40% 'Very disappointed', while those that achieved strong, sustainable growth invariably scored above 40%. When we first ran this survey at Superhuman in summer 2017, our score was only 22%. We were nowhere near product-market fit."
+      },
+      {
+        "start_timestamp": "09:46",
+        "end_timestamp": "16:30",
+        "title": "Segmenting to Find the High-Expectation Customer (HXC)",
+        "content": "If you look at the raw feedback of all users, you will get pulled in a hundred conflicting directions. To fix this, we segmented our respondents. We isolated the people who answered 'Very disappointed'—these are your early adopters and High-Expectation Customers (HXCs). We looked at what persona they were: founders, executives, VC investors, sales leaders. Then we asked them: 'What is the main benefit you receive from Superhuman?' For these people, the answer was speed, keyboard shortcuts, and getting to Inbox Zero.\n\nNext, we looked at the 'Somewhat disappointed' group. We specifically filtered for the somewhat disappointed users who shared the same primary benefit as the happy group (speed and efficiency). We intentionally ignored the ones who wanted features we didn't care to build, like full CRM integrations. By focusing our roadmap 50% on doubling down on what the 'Very disappointed' loved, and 50% on fixing the deal-breakers for the targeted 'Somewhat disappointed' group, our score skyrocketed from 22% to 58% in just 9 months."
+      },
+      {
+        "start_timestamp": "16:31",
+        "end_timestamp": "23:10",
+        "title": "The Four-Question PMF Survey Framework",
+        "content": "The Superhuman PMF Engine relies on four fundamental questions:\n1. How would you feel if you could no longer use Superhuman? (Very disappointed, Somewhat disappointed, Not disappointed)\n2. What type of people do you think would most benefit from Superhuman? (Helps discover your ideal customer persona in the user's own words)\n3. What is the main benefit you receive from Superhuman? (Reveals your core value proposition)\n4. How can we improve Superhuman for you? (Gives you your immediate product roadmap)\n\nWe tracked this score weekly like a North Star metric. Every product sprint had to balance two buckets: building things that delight your core fans, and removing the blockers holding back the on-the-fence users."
+      }
+    ]
+  },
+  {
+    "id": "elena-verna-b2b-plg",
+    "title": "The Ultimate Guide to B2B Product-Led Growth and Viral Loops",
+    "guest": "Elena Verna",
+    "company": "Miro, Amplitude, SurveyMonkey",
+    "episode_url": "https://www.lennyspodcast.com/the-ultimate-guide-to-b2b-growth-elena-verna/",
+    "source_url": "https://github.com/lenny-transcripts/episodes/elena-verna.md",
+    "published_at": "2023-01-20",
+    "summary": "Elena Verna breaks down how modern B2B SaaS scales using Product-Led Growth (PLG), Product-Led Sales (PLS), self-serve onboarding, and high-velocity organic retention loops.",
+    "sections": [
+      {
+        "start_timestamp": "03:15",
+        "end_timestamp": "08:50",
+        "title": "The Core Philosophy of Product-Led Growth (PLG)",
+        "content": "Product-Led Growth is not just having a free trial or a freemium tier. PLG is a business model where the product itself drives customer acquisition, retention, and expansion. In traditional sales-led models, your marketing and sales teams do all the heavy lifting to convince an executive buyer before anyone ever touches the software. In PLG, the end-user tries the software first, realizes immediate value (the Aha! moment), becomes a power user, and pulls the rest of their team into the product.\n\nThe single biggest mistake companies make when attempting PLG is gating the Aha! moment behind sales demos, long sign-up forms, or mandatory credit card inputs. If the user cannot experience core value within 3 to 5 minutes of signing up, your PLG funnel is broken."
+      },
+      {
+        "start_timestamp": "08:51",
+        "end_timestamp": "15:40",
+        "title": "B2B Product-Led Sales (PLS) and PQLs",
+        "content": "PLG and Sales are not opposites; they are synergistic. Once you have a high-velocity bottom-up self-serve motion, you introduce Product-Led Sales (PLS). Instead of sales reps cold-calling prospects, reps reach out to Product Qualified Leads (PQLs)—accounts where multiple individual users are already actively using the product and bumping up against team collaboration limits, security requirements, or enterprise feature gates.\n\nAt Miro, we monitored usage thresholds: when an account reached 3 active boards or 5 collaborating teammates, that account triggered a PQL alert for our enterprise sales team. Sales conversations transitioned from 'Let me convince you why you need Miro' to 'I see your team is already creating 20 boards a week—let's discuss enterprise SSO, centralized billing, and administrative governance.'"
+      },
+      {
+        "start_timestamp": "15:41",
+        "end_timestamp": "22:15",
+        "title": "Building Sustainable Growth Loops vs Funnels",
+        "content": "Funnels are linear; you put marketing dollars in at the top, and some percentage converts at the bottom, but the energy dies. Growth loops are closed systems where the output of one cycle becomes the input for the next cycle. In Miro, when a user creates a collaborative whiteboard and invites 4 colleagues to brainstorm, those 4 colleagues receive an email invite, experience the product, and subsequently create their own boards, inviting another 4 people each. That is a viral collaboration loop. If your product does not have intrinsic loops—whether collaborative, content-driven, or financial—you will constantly be enslaved to paid ad spend."
+      }
+    ]
+  },
+  {
+    "id": "brian-balfour-four-fits",
+    "title": "The Four Fits Framework and Retention Mechanics",
+    "guest": "Brian Balfour",
+    "company": "Reforge, HubSpot",
+    "episode_url": "https://www.lennyspodcast.com/the-four-fits-framework-brian-balfour/",
+    "source_url": "https://github.com/lenny-transcripts/episodes/brian-balfour.md",
+    "published_at": "2023-04-10",
+    "summary": "Brian Balfour outlines the legendary Four Fits Framework (Market-Product, Product-Channel, Channel-Model, Model-Market) and explains why retention is the foundational bedrock of all growth.",
+    "sections": [
+      {
+        "start_timestamp": "05:00",
+        "end_timestamp": "11:30",
+        "title": "The Four Fits Framework Overview",
+        "content": "Everyone in Silicon Valley obsessively talks about Product-Market Fit as if it is the only thing that matters. But companies don't fail just because of product-market fit; they fail because you cannot think about product and market in a silo. You need all Four Fits aligning in unison:\n1. Market-Product Fit: Does your product solve a burning problem for a well-defined target audience?\n2. Product-Channel Fit: Products are built to fit channels, not the other way around. You do not control Google SEO, Facebook Ads, or Apple's App Store; your product mechanics must adapt to the channel rules.\n3. Channel-Model Fit: Your monetization model (ARPU) must match your channel acquisition cost (CAC). If you charge $10/year, you cannot use an outbound enterprise sales team. If you charge $100k/year, you cannot rely solely on virality.\n4. Model-Market Fit: Does your pricing model multiplied by the total addressable market size equal a venture-scale business?"
+      },
+      {
+        "start_timestamp": "11:31",
+        "end_timestamp": "18:20",
+        "title": "Retention as the Kingmaker: The Cohort Curve",
+        "content": "Retention is the single most important metric in any business. If your cohort retention curve trends toward zero, your business is a leaky bucket—any growth you create through marketing or virality is an illusion that will eventually collapse.\n\nA healthy product retention curve flattens out parallel to the x-axis. For B2B SaaS, good logo retention stabilizes at 70-80% annually, while net revenue retention (NRR) should exceed 110-120%. For consumer subscription apps, flattening at 20-30% monthly active retention is solid. If the curve does not flatten, you do not have PMF, and investing in user acquisition is burning capital."
+      }
+    ]
+  },
+  {
+    "id": "shreyas-doshi-pm-craft",
+    "title": "The LNO Framework, Good vs Great PMs, and High-Agency Product Management",
+    "guest": "Shreyas Doshi",
+    "company": "Stripe, Twitter, Google",
+    "episode_url": "https://www.lennyspodcast.com/the-lno-framework-shreyas-doshi/",
+    "source_url": "https://github.com/lenny-transcripts/episodes/shreyas-doshi.md",
+    "published_at": "2022-09-08",
+    "summary": "Shreyas Doshi shares operational frameworks for product leaders, including the LNO Framework for time allocation, high-agency decision making, and avoiding common product management traps.",
+    "sections": [
+      {
+        "start_timestamp": "02:30",
+        "end_timestamp": "09:10",
+        "title": "The LNO Framework for Task Prioritization",
+        "content": "Most PMs burn out because they treat all work with equal 100% effort. The LNO Framework categorizes all your daily tasks into three distinct buckets:\n1. L (Leverage): Tasks where disproportionate effort produces 10x or 100x outsized impact. Examples: defining the product strategy, architecting core value propositions, key hiring decisions, or high-stakes stakeholder alignment. On L tasks, you must achieve 100% or 110% perfection.\n2. N (Neutral): Tasks that simply need to get done competently to maintain baseline velocity. Examples: standard sprint planning, weekly status updates, routine PRD reviews. Aim for 80% good-enough quality and move fast.\n3. O (Overhead): Low-impact administrative tasks that carry minimal upside. Examples: expense reports, filling out non-critical corporate surveys, routine backlog grooming. Do these with 50% effort, delegate them, batch them, or eliminate them entirely."
+      },
+      {
+        "start_timestamp": "09:11",
+        "end_timestamp": "16:40",
+        "title": "Good PM vs. Great PM Differences",
+        "content": "A good PM delivers projects on time and meets stakeholder expectations. A great PM questions the fundamental premise of the project before writing a single line of code. Good PMs fall in love with their features; great PMs fall in love with customer problems and are eager to kill their own ideas if evidence points elsewhere.\n\nGreat PMs also operate with extreme high agency: when faced with organizational roadblocks, missing data, or bureaucratic inertia, they find creative ways around the obstacle rather than using it as an excuse for stalled progress."
+      }
+    ]
+  },
+  {
+    "id": "marty-cagan-product-teams",
+    "title": "Empowered Product Teams vs. Feature Factories",
+    "guest": "Marty Cagan",
+    "company": "Silicon Valley Product Group (SVPG)",
+    "episode_url": "https://www.lennyspodcast.com/empowered-product-teams-marty-cagan/",
+    "source_url": "https://github.com/lenny-transcripts/episodes/marty-cagan.md",
+    "published_at": "2023-02-14",
+    "summary": "Marty Cagan discusses the difference between feature factories and truly empowered product teams, and how to tackle the four core product risks: value, usability, feasibility, and viability.",
+    "sections": [
+      {
+        "start_timestamp": "04:00",
+        "end_timestamp": "10:15",
+        "title": "The Four Big Product Risks",
+        "content": "In strong tech companies, product teams tackle risks before they write code, not after. There are four fundamental product risks:\n1. Value Risk: Will customers actually buy this or choose to use it?\n2. Usability Risk: Can users figure out how to use it without confusion?\n3. Feasibility Risk: Can our engineers build this with available technology, time, and skills?\n4. Viability Risk: Does this solution work for our business? (Legal, compliance, finance, sales, go-to-market channels).\n\nFeature factories pass delivery tickets from business stakeholders down to engineers. Empowered teams are given problems to solve and metrics to move, and they discover the solutions themselves while resolving all four risks continuously in discovery."
+      }
+    ]
+  },
+  {
+    "id": "madhavan-ramanam-pricing",
+    "title": "Monetizing Innovation and Value-Based Pricing",
+    "guest": "Madhavan Ramanujam",
+    "company": "Simon-Kucher & Partners",
+    "episode_url": "https://www.lennyspodcast.com/monetizing-innovation-madhavan-ramanujam/",
+    "source_url": "https://github.com/lenny-transcripts/episodes/madhavan-ramanujam.md",
+    "published_at": "2022-11-17",
+    "summary": "Madhavan Ramanujam explains why 72% of innovations fail due to ignoring willingness-to-pay until after product launch, and how to price based on customer value metrics.",
+    "sections": [
+      {
+        "start_timestamp": "03:40",
+        "end_timestamp": "11:20",
+        "title": "Designing the Product Around the Price",
+        "content": "The number one mistake product managers make is building a product first, and then handing it to marketing or sales asking 'How should we price this?' That is completely backwards. You must have willingness-to-pay conversations before you write a single line of code.\n\nThere are four classic monetization failure modes:\n1. Feature Shock: Stuffing too many features into one bloated product that nobody wants to pay full price for.\n2. Minivation: Setting the price way too low out of fear, leaving massive money on the table.\n3. Hidden Gem: An internal tool or minor feature that has enormous standalone commercial value but is buried as a free add-on.\n4. Undead: A product that nobody truly wants or is willing to pay for, but survives as a zombie project inside the organization because nobody has the courage to kill it."
+      }
+    ]
+  },
+  {
+    "id": "claire-vo-ai-pm",
+    "title": "How AI Is Transforming Product Management and 10x PM Workflows",
+    "guest": "Claire Vo",
+    "company": "LaunchDarkly, ChatPRD",
+    "episode_url": "https://www.lennyspodcast.com/how-ai-is-transforming-product-management-claire-vo/",
+    "source_url": "https://github.com/lenny-transcripts/episodes/claire-vo.md",
+    "published_at": "2024-03-22",
+    "summary": "Claire Vo discusses how AI agents and automated artifact generation compress the product discovery cycle from weeks to minutes, enabling high-velocity prototyping and sharper PRDs.",
+    "sections": [
+      {
+        "start_timestamp": "04:10",
+        "end_timestamp": "12:00",
+        "title": "AI as the PM Thought Partner & Artifact Accelerator",
+        "content": "The job of a product manager isn't typing words into a Google Doc; it's making critical decisions, identifying trade-offs, and driving alignment. AI allows PMs to generate complete, structured artifacts—PRDs, user journey maps, competitive matrices, and interactive HTML prototypes—in seconds.\n\nWhen you use an AI assistant with grounded domain knowledge, you can stress-test edge cases immediately. Instead of waiting two days for a design sprint to mock up a calculator or a feature concept, a PM can generate a live interactive HTML/CSS artifact right in their chat session, test it with real users that afternoon, and iterate before engineering commits a single sprint story."
+      }
+    ]
+  }
+]
